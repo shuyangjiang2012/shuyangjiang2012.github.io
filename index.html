@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>姜舒扬 (Shuyang Jiang) | 算法工程师 & AI Researcher</title>
+  <meta name="description" content="姜舒扬 (Shuyang Jiang) 个人学术与技术主页 - 机器学习、大模型、计算机视觉、多模态、信号处理与信息论" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-soft: rgba(37, 99, 235, 0.1);
+      --border: #e2e8f0;
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      --tag-bg: #eff6ff;
+      --tag-text: #1e40af;
+      --gold-bg: #fef9c3;
+      --gold-text: #854d0e;
+      --silver-bg: #f1f5f9;
+      --silver-text: #334155;
+      --nav-bg: rgba(255, 255, 255, 0.85);
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0b1120;
+      --bg-secondary: #111827;
+      --bg-subtle: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-soft: rgba(59, 130, 246, 0.15);
+      --border: #1e293b;
+      --card-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.4);
+      --tag-bg: rgba(59, 130, 246, 0.15);
+      --tag-text: #93c5fd;
+      --gold-bg: rgba(234, 179, 8, 0.15);
+      --gold-text: #fde047;
+      --silver-bg: rgba(148, 163, 184, 0.15);
+      --silver-text: #e2e8f0;
+      --nav-bg: rgba(17, 24, 39, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1120px;
+      margin: 36px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Left Profile Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .avatar-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #0891b2 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+      letter-spacing: 1px;
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .profile-en-name {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .bio-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.65;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 18px 0;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-secondary);
+      word-break: break-all;
+    }
+
+    .contact-item svg {
+      width: 17px;
+      height: 17px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .copy-trigger {
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      transition: var(--transition);
+    }
+
+    .copy-trigger:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .sidebar-section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Right Content Area */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .section-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-primary);
+    }
+
+    .section-title svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+    }
+
+    /* Timeline Items */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .timeline-item:hover {
+      border-left-color: var(--accent);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg-secondary);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .item-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .rank-pill {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .item-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .item-subtitle {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .item-meta {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.91rem;
+      color: var(--text-secondary);
+    }
+
+    .bullet-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .sub-project {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-top: 12px;
+    }
+
+    .sub-project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .sub-project-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .placeholder-note {
+      font-size: 0.78rem;
+      color: var(--gold-text);
+      background: var(--gold-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Publications */
+    .filter-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pub-item {
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .pub-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .pub-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pub-body {
+      flex: 1;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.45;
+    }
+
+    .pub-authors {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .pub-authors strong {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .pub-venue {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .venue-tag {
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+    }
+
+    /* Awards & Honors Grid */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .award-card {
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .award-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .award-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    .badge-silver {
+      background: var(--silver-bg);
+      color: var(--silver-text);
+      border: 1px solid var(--border);
+    }
+
+    .badge-gold {
+      background: var(--gold-bg);
+      color: var(--gold-text);
+    }
+
+    .award-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Skills & Services */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .skill-box-title {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 0.83rem;
+      font-weight: 500;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .journal-pill {
+      font-size: 0.84rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-primary);
+      color: var(--bg-secondary);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 24px 48px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Language visibility */
+    [data-lang="en"] {
+      display: none;
+    }
+    html[lang="en"] [data-lang="zh"] {
+      display: none;
+    }
+    html[lang="en"] [data-lang="en"] {
+      display: revert;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media print {
+      .navbar, .filter-tabs, .copy-trigger, footer {
+        display: none !important;
+      }
+      .container {
+        grid-template-columns: 1fr;
+        margin: 0;
+        padding: 0;
+      }
+      .section-card, .sidebar {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span data-lang="zh">姜舒扬 · Shuyang Jiang</span>
+        <span data-lang="en">Shuyang Jiang · 姜舒扬</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#education"><span data-lang="zh">教育背景</span><span data-lang="en">Education</span></a></li>
+        <li><a href="#internship"><span data-lang="zh">实习经历</span><span data-lang="en">Internship</span></a></li>
+        <li><a href="#research"><span data-lang="zh">研究经历</span><span data-lang="en">Research</span></a></li>
+        <li><a href="#publications"><span data-lang="zh">发表论文</span><span data-lang="en">Publications</span></a></li>
+        <li><a href="#awards"><span data-lang="zh">荣誉奖励</span><span data-lang="en">Honors</span></a></li>
+        <li><a href="#skills"><span data-lang="zh">专业服务与技能</span><span data-lang="en">Skills & Service</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="langToggle" title="切换语言 / Switch Language">
+          <span>中 / EN</span>
+        </button>
+        <button class="icon-btn" id="themeToggle" title="切换深浅色模式 / Toggle Theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button class="icon-btn" onclick="window.print()" title="打印或保存为PDF / Print CV">
+          <span data-lang="zh">打印简历</span>
+          <span data-lang="en">Print CV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="avatar-wrap">SJ</div>
+      <h1 class="profile-name" data-lang="zh">姜舒扬</h1>
+      <h1 class="profile-name" data-lang="en">Shuyang Jiang</h1>
+      <div class="profile-en-name" data-lang="zh">Shuyang Jiang</div>
+      <div class="profile-en-name" data-lang="en">姜舒扬</div>
+
+      <div class="role-badge">
+        <span data-lang="zh">算法工程师 / AI算法研究员</span>
+        <span data-lang="en">Algorithm Engineer / AI Researcher</span>
+      </div>
+
+      <p class="bio-text" data-lang="zh">
+        我是在美国留学后回国的留学生，旨在成为一名算法工程师，并致力于在研发实验室从事算法的设计、实现与理论分析的研究性工作。
+      </p>
+      <p class="bio-text" data-lang="en">
+        U.S.-educated researcher returning to China, aiming to work as an Algorithm Engineer in an R&D laboratory focusing on algorithm design, implementation, and theoretical analysis.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="sidebar-section-title">
+        <span data-lang="zh">联系方式</span>
+        <span data-lang="en">Contact</span>
+      </div>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:+8615268166332">+86 152 6816 6332</a>
+        </li>
+        <li class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <a href="mailto:shuyangjiang2012@gmail.com">shuyangjiang2012@gmail.com</a>
+          <button class="copy-trigger" onclick="copyEmail()" title="复制邮箱">复制</button>
+        </li>
+        <li class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          <a href="https://www.linkedin.com/in/shuyangjiang/" target="_blank" rel="noopener noreferrer">
+            linkedin.com/in/shuyangjiang
+          </a>
+        </li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <div class="sidebar-section-title">
+        <span data-lang="zh">专业领域</span>
+        <span data-lang="en">Research Interests</span>
+      </div>
+      <div class="interest-tags" data-lang="zh">
+        <span class="tag">机器学习 (深度学习)</span>
+        <span class="tag">大模型 (LLM)</span>
+        <span class="tag">计算机视觉</span>
+        <span class="tag">多模态表征学习</span>
+        <span class="tag">信号处理</span>
+        <span class="tag">编码论与信息论</span>
+      </div>
+      <div class="interest-tags" data-lang="en">
+        <span class="tag">Machine Learning & Deep Learning</span>
+        <span class="tag">Large Language Models</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Multimodal Learning</span>
+        <span class="tag">Signal Processing</span>
+        <span class="tag">Coding & Information Theory</span>
+      </div>
+    </aside>
+
+    <!-- Right Content Sections -->
+    <div class="main-content">
+
+      <!-- Education Section -->
+      <section id="education" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <span data-lang="zh">教育背景</span>
+            <span data-lang="en">Education</span>
+          </h2>
+        </div>
+
+        <div class="timeline">
+          <!-- UIUC -->
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">伊利诺伊大学香槟分校 (UIUC)</span>
+                <span data-lang="en">University of Illinois Urbana-Champaign (UIUC)</span>
+                <span class="rank-pill" data-lang="zh">ECE专业全美前5</span>
+                <span class="rank-pill" data-lang="en">Top 5 U.S. ECE Program</span>
+              </div>
+              <span class="item-date">2019 – 2023</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">博士（中途退出），电子与计算机工程系 (ECE)</span>
+              <span data-lang="en">Ph.D. Studies (Departed), Department of Electrical and Computer Engineering</span>
+            </div>
+          </div>
+
+          <!-- UCLA -->
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">加州大学洛杉矶分校 (UCLA)</span>
+                <span data-lang="en">University of California, Los Angeles (UCLA)</span>
+                <span class="rank-pill" data-lang="zh">世界排名前20</span>
+                <span class="rank-pill" data-lang="en">Top 20 Global University</span>
+              </div>
+              <span class="item-date">2016 – 2018</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">硕士，电子与计算机工程系 (ECE)</span>
+              <span data-lang="en">M.S., Department of Electrical and Computer Engineering</span>
+            </div>
+            <div class="item-meta">
+              <span data-lang="zh"><strong>总GPA:</strong> 3.9 / 4.0 &nbsp;|&nbsp; <strong>导师:</strong> Lara Dolecek &nbsp;|&nbsp; <strong>硕士论文:</strong> <em>"An Interactive Algorithm for Synchronizing From Burst Deletions"</em></span>
+              <span data-lang="en"><strong>Overall GPA:</strong> 3.9 / 4.0 &nbsp;|&nbsp; <strong>Advisor:</strong> Prof. Lara Dolecek &nbsp;|&nbsp; <strong>M.S. Thesis:</strong> <em>"An Interactive Algorithm for Synchronizing From Burst Deletions"</em></span>
+            </div>
+          </div>
+
+          <!-- Tsinghua -->
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">清华大学 (Tsinghua University)</span>
+                <span data-lang="en">Tsinghua University</span>
+                <span class="rank-pill" data-lang="zh">专业排名前10%</span>
+                <span class="rank-pill" data-lang="en">Top 10% in Class</span>
+              </div>
+              <span class="item-date">2009 – 2014</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">学士，电子工程系 (Department of Electronic Engineering)</span>
+              <span data-lang="en">B.S., Department of Electronic Engineering</span>
+            </div>
+            <div class="item-meta">
+              <span data-lang="zh"><strong>总GPA:</strong> 91.4 / 100 &nbsp;|&nbsp; <strong>专业GPA:</strong> 92.3 / 100 &nbsp;|&nbsp; <strong>排名:</strong> 前 10%</span>
+              <span data-lang="en"><strong>Overall GPA:</strong> 91.4 / 100 &nbsp;|&nbsp; <strong>Major GPA:</strong> 92.3 / 100 &nbsp;|&nbsp; <strong>Rank:</strong> Top 10%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Internship Section -->
+      <section id="internship" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <span data-lang="zh">实习经历</span>
+            <span data-lang="en">Internship Experience</span>
+          </h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">中科（安徽）G60智慧健康创新研究院</span>
+                <span data-lang="en">CAS (Anhui) G60 Institute of Smart Health Innovation</span>
+              </div>
+              <span class="item-date">2025.09 – 2025.12</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">科研实习 · CLIP变种算法研究 &nbsp;|&nbsp; 导师：丁增辉</span>
+              <span data-lang="en">Research Intern · CLIP Variant Algorithm Research &nbsp;|&nbsp; Advisor: Zenghui Ding</span>
+            </div>
+            <ul class="bullet-list" data-lang="zh">
+              <li>围绕 CLIP 变种算法开展多模态表征学习研究，提出 <strong>DINORANKCLIP</strong> 框架：以 CLIP 作为跨模态语义对齐主干，引入 DINOv3 及其 text-aligned 变体的蒸馏特征，对图像与文本两端的细粒度结构信息进行补充。</li>
+              <li>设计轻量化 teacher-student 蒸馏方案，将 DINOv3 的 dense/patch-level 结构先验迁移至低成本 student 模型，在尽量不显著增加推理开销的前提下增强局部纹理、几何关系与细粒度表征能力。</li>
+              <li>设计冲突感知 Fusion 模块，结合多尺度 SPP、Channel/Spatial Attention 与 Self-Attention，自适应控制结构信息注入强度，缓解 CLIP 特征与蒸馏特征之间的表征冲突，提升融合稳定性。</li>
+              <li>在 RANKCLIP 基础上将 Plackett-Luce 排序一致性从一阶扩展为二阶、三阶以及任意阶，引入 transition term 建模局部邻接关系，并构造 List-wise cross-modal 与 in-modal 排序一致性来联合约束训练损失函数。</li>
+            </ul>
+            <ul class="bullet-list" data-lang="en">
+              <li>Conducted multimodal representation learning research on CLIP variants and proposed the <strong>DINORANKCLIP</strong> framework, using CLIP as the cross-modal semantic alignment backbone and injecting distilled features from DINOv3 and its text-aligned variants to enrich fine-grained structural representations across both image and text modalities.</li>
+              <li>Designed a lightweight teacher-student knowledge distillation scheme transferring dense/patch-level structural priors from DINOv3 into a low-cost student model, enhancing local texture, geometric relations, and fine-grained representations with minimal inference overhead.</li>
+              <li>Developed a conflict-aware Fusion module integrating multi-scale SPP, Channel/Spatial Attention, and Self-Attention to adaptively regulate structural feature injection and mitigate representation conflicts between CLIP and distilled features.</li>
+              <li>Extended Plackett-Luce ranking consistency from first-order to second-order, third-order, and arbitrary higher orders based on RANKCLIP, introducing transition terms to model local adjacency relations and formulating list-wise cross-modal and in-modal ranking consistency losses.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Experience Section -->
+      <section id="research" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            <span data-lang="zh">研究经历</span>
+            <span data-lang="en">Research Experience</span>
+          </h2>
+        </div>
+
+        <div class="timeline">
+          <!-- UIUC Research -->
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">伊利诺伊大学香槟分校 (UIUC)</span>
+                <span data-lang="en">University of Illinois Urbana-Champaign (UIUC)</span>
+              </div>
+              <span class="item-date">Coordinated Science Laboratory</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">研究助理 (Graduate Research Assistant), Coordinated Science Laboratory</span>
+              <span data-lang="en">Graduate Research Assistant, Coordinated Science Laboratory</span>
+            </div>
+
+            <!-- TODO: 您可以在下方直接替换简历中“大模型有关项目一/二/三”的具体项目名称与要点描述 -->
+            <div class="sub-project">
+              <div class="sub-project-header">
+                <span class="sub-project-title">
+                  <span data-lang="zh">大模型有关项目一</span>
+                  <span data-lang="en">LLM Research Project I</span>
+                </span>
+                <div>
+                  <span class="placeholder-note" data-lang="zh">待补充详情</span>
+                  <span class="item-date">2026.04 – 2026.04</span>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>四四四</li>
+                <li>五五五</li>
+              </ul>
+            </div>
+
+            <div class="sub-project">
+              <div class="sub-project-header">
+                <span class="sub-project-title">
+                  <span data-lang="zh">大模型有关项目二</span>
+                  <span data-lang="en">LLM Research Project II</span>
+                </span>
+                <div>
+                  <span class="placeholder-note" data-lang="zh">待补充详情</span>
+                  <span class="item-date">2026.04 – 2026.04</span>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>四四四</li>
+                <li>五五五</li>
+              </ul>
+            </div>
+
+            <div class="sub-project">
+              <div class="sub-project-header">
+                <span class="sub-project-title">
+                  <span data-lang="zh">大模型有关项目三</span>
+                  <span data-lang="en">LLM Research Project III</span>
+                </span>
+                <div>
+                  <span class="placeholder-note" data-lang="zh">待补充详情</span>
+                  <span class="item-date">2026.04 – 2026.04</span>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>四四四</li>
+                <li>五五五</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- UCLA Research -->
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">加州大学洛杉矶分校 (UCLA)</span>
+                <span data-lang="en">University of California, Los Angeles (UCLA)</span>
+              </div>
+              <span class="item-date">2017.05 – 2018.07</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">研究助理 (Graduate Research Assistant) &nbsp;|&nbsp; 导师：Lara Dolecek</span>
+              <span data-lang="en">Graduate Research Assistant &nbsp;|&nbsp; Advisor: Prof. Lara Dolecek</span>
+            </div>
+
+            <div class="sub-project">
+              <div class="sub-project-header">
+                <span class="sub-project-title">
+                  <span data-lang="zh">源于阵发性 (Bursty) 删除操作的文件同步算法</span>
+                  <span data-lang="en">File Synchronization Algorithm from Bursty Deletions</span>
+                </span>
+                <span class="item-date">2017.05 – 2018.07</span>
+              </div>
+              <ul class="bullet-list" data-lang="zh">
+                <li>构建了一个明确的文件同步算法，能够有效地从阵发性删除操作中恢复出原始文件。</li>
+                <li>提出用稳定的双态马尔可夫链来建模阵发性删除操作。</li>
+                <li>基于已有的针对 i.i.d. 删除操作的文件同步算法框架，设计了三个核心模块：<strong>匹配模块</strong>（使用包含 Dijkstra 算法在内的图论方法检测中心子字符串在删除文件中的正确匹配位置）、<strong>阵发性删除恢复模块</strong>（采用分而治之与非分而治之两种方案恢复片段子字符串的被删除字符）和 <strong>LDPC 解码模块</strong>（纠正残余错误）。</li>
+              </ul>
+              <ul class="bullet-list" data-lang="en">
+                <li>Constructed an explicit file synchronization algorithm capable of effectively recovering original files from bursty deletion errors.</li>
+                <li>Proposed modeling bursty deletions using a stationary two-state Markov chain.</li>
+                <li>Designed a three-module architecture consisting of a <strong>Matching Module</strong> (using graph-theoretic methods including Dijkstra's algorithm to locate anchor substrings), a <strong>Bursty Deletion Recovery Module</strong> (with divide-and-conquer and non-divide-and-conquer schemes), and an <strong>LDPC Decoding Module</strong> (for residual error correction).</li>
+              </ul>
+            </div>
+
+            <div class="sub-project">
+              <div class="sub-project-header">
+                <span class="sub-project-title">
+                  <span data-lang="zh">基于 EM (Expectation Maximization) 的稀疏 RLS (Recursive Least Squares) 算法</span>
+                  <span data-lang="en">EM-Based Sparse Recursive Least Squares (RLS) Algorithm</span>
+                </span>
+                <span class="item-date">2017.06 – 2017.12</span>
+              </div>
+              <ul class="bullet-list" data-lang="zh">
+                <li>提出一个新的稀疏 RLS 算法，结合最大似然准则和 EM 算法进行稀疏系统辨识。</li>
+                <li>采用待估计模型参数的 <em>p</em> 准范数 (<em>p</em>-norm-like) 作为损失函数的正则化项以度量稀疏度（当 <em>p</em> 为 0 或 1 时即对应广泛使用的 <em>l</em><sub>0</sub> 和 <em>l</em><sub>1</sub> 范数）。</li>
+                <li>不同于传统途径，将正则化损失函数最小化问题转化为正则化最大似然问题，并通过 EM 算法的 E 步和 M 步推导出模型参数的闭式迭代计算公式，实现高效求解。</li>
+              </ul>
+              <ul class="bullet-list" data-lang="en">
+                <li>Proposed a novel sparse RLS algorithm leveraging Maximum Likelihood estimation and the Expectation-Maximization (EM) framework.</li>
+                <li>Employed a <em>p</em>-norm-like constraint as the sparsity-inducing regularization term (which reduces to the widely used <em>l</em><sub>0</sub> and <em>l</em><sub>1</sub> norms when <em>p</em> = 0 or 1).</li>
+                <li>Reformulated the regularized loss minimization into a regularized maximum likelihood problem and derived closed-form iterative updates via the E-step and M-step of the EM algorithm.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tsinghua Research -->
+          <div class="timeline-item">
+            <div class="item-header">
+              <div class="item-title">
+                <span data-lang="zh">清华大学 (Tsinghua University)</span>
+                <span data-lang="en">Tsinghua University</span>
+              </div>
+              <span class="item-date">2013.01 – 2015.06</span>
+            </div>
+            <div class="item-subtitle">
+              <span data-lang="zh">本科生科研 &nbsp;|&nbsp; 导师：谷源涛</span>
+              <span data-lang="en">Undergraduate Research &nbsp;|&nbsp; Advisor: Prof. Yuantao Gu</span>
+            </div>
+
+            <div class="sub-project">
+              <div class="sub-project-header">
+                <span class="sub-project-title">
+                  <span data-lang="zh">引入块稀疏的 LMS (Least Mean Squares) 算法</span>
+                  <span data-lang="en">Block-Sparse Least Mean Squares (BS-LMS) Algorithm</span>
+                </span>
+                <span class="item-date">2013.01 – 2015.06</span>
+              </div>
+              <ul class="bullet-list" data-lang="zh">
+                <li>提出新算法 <strong>block-sparse LMS (BS-LMS)</strong>，显著提升了 LMS 系列算法在学习块稀疏系统中的性能。</li>
+                <li>构造了一个 Markov-Gaussian 模块，对块稀疏系统进行精细化建模。</li>
+                <li>针对单输出单层神经网络下传统 LMS 算法（BP 算法简化形式）的局限，在均方误差损失函数上引入模型参数的 <em>l</em><sub>2,0</sub> 范数正则化项，并利用梯度下降法导出模型参数的迭代更新公式。</li>
+                <li>完成严格的理论分析，推导出新算法稳态误差和瞬态收敛性能的理论表达式，并通过 Matlab 数值仿真实验验证了理论分析的准确性与算法优越性。</li>
+              </ul>
+              <ul class="bullet-list" data-lang="en">
+                <li>Proposed the <strong>block-sparse LMS (BS-LMS)</strong> algorithm, significantly improving adaptive filtering performance in identifying block-sparse systems.</li>
+                <li>Constructed a Markov-Gaussian model to characterize multi-clustering block-sparse systems.</li>
+                <li>Incorporated an <em>l</em><sub>2,0</sub>-norm regularization penalty into the MSE cost function and derived iterative parameter update equations via gradient descent.</li>
+                <li>Derived theoretical expressions for steady-state mean-square error and transient convergence, validated extensively via MATLAB numerical simulations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section id="publications" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <span data-lang="zh">发表论文</span>
+            <span data-lang="en">Publications</span>
+          </h2>
+
+          <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterPubs('all', this)">
+              <span data-lang="zh">全部 (6)</span>
+              <span data-lang="en">All (6)</span>
+            </button>
+            <button class="filter-btn" onclick="filterPubs('ai', this)">
+              <span data-lang="zh">大模型与多模态 (2)</span>
+              <span data-lang="en">LLM & Multimodal (2)</span>
+            </button>
+            <button class="filter-btn" onclick="filterPubs('sp', this)">
+              <span data-lang="zh">信号处理与信息论 (4)</span>
+              <span data-lang="en">Signal Processing & Info Theory (4)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pub-list" id="pubList">
+          <div class="pub-item" data-category="ai">
+            <span class="pub-index">[1]</span>
+            <div class="pub-body">
+              <div class="pub-title">MemGuard: Auditing Memory Contamination and Selective Sharing in Multi-Agent LLM Systems</div>
+              <div class="pub-authors">Fucheng Deng, <strong>Shuyang Jiang</strong>, and Nan Yu</div>
+              <div class="pub-venue">
+                <span class="venue-tag">Preprint 2026</span>
+                <span>Submitted to EMNLP 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-item" data-category="ai">
+            <span class="pub-index">[2]</span>
+            <div class="pub-body">
+              <div class="pub-title">DINORANKCLIP: DINOv3 Distillation and Injection for Vision-Language Pretraining with High-Order Ranking Consistency</div>
+              <div class="pub-authors"><strong>Shuyang Jiang</strong>, Nan Yu, Yiming Zhang, Zenghui Ding, and Zhenyu Wu</div>
+              <div class="pub-venue">
+                <span class="venue-tag">arXiv:2605.06592</span>
+                <span>2026 (Submitted to NeurIPS 2026)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-item" data-category="sp">
+            <span class="pub-index">[3]</span>
+            <div class="pub-body">
+              <div class="pub-title">EM Based p-norm-like Constraint RLS Algorithm for Sparse System Identification</div>
+              <div class="pub-authors"><strong>Shuyang Jiang</strong> and Kung Yao</div>
+              <div class="pub-venue">
+                <span class="venue-tag">arXiv:2312.05829</span>
+                <span>arXiv preprint, 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-item" data-category="sp">
+            <span class="pub-index">[4]</span>
+            <div class="pub-body">
+              <div class="pub-title">An Interactive Algorithm for Synchronizing from Burst Deletions</div>
+              <div class="pub-authors"><strong>Shuyang Jiang</strong>, Clayton Schoeny, and Lara Dolecek</div>
+              <div class="pub-venue">
+                <span class="venue-tag">IEEE ISTC 2018</span>
+                <span>Proc. IEEE International Symposium on Turbo Codes & Iterative Information Processing (ISTC), Hong Kong, Dec. 2018</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-item" data-category="sp">
+            <span class="pub-index">[5]</span>
+            <div class="pub-body">
+              <div class="pub-title">Block-Sparsity-Induced Adaptive Filter for Multi-Clustering System Identification</div>
+              <div class="pub-authors"><strong>Shuyang Jiang</strong> and Yuantao Gu</div>
+              <div class="pub-venue">
+                <span class="venue-tag">IEEE TSP 2015</span>
+                <span>IEEE Transactions on Signal Processing, 63(20): 5318–5330, 2015</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-item" data-category="sp">
+            <span class="pub-index">[6]</span>
+            <div class="pub-body">
+              <div class="pub-title">Can You Form Healthy Habit? Predicting Habit Forming States through Mobile Phone</div>
+              <div class="pub-authors">Yin Bai, Bin Xu, <strong>Shuyang Jiang</strong>, Haifeng Yang, and Jian Cui</div>
+              <div class="pub-venue">
+                <span class="venue-tag">BODYNETS 2013</span>
+                <span>BODYNETS 2013: 144–147</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Honors & Awards Section -->
+      <section id="awards" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+            <span data-lang="zh">荣誉奖励</span>
+            <span data-lang="en">Honors & Awards</span>
+          </h2>
+        </div>
+
+        <div class="awards-grid">
+          <div class="award-card">
+            <div class="award-top">
+              <span class="award-badge badge-silver">🥈 Kaggle Silver Medal</span>
+              <span class="item-date">2026.02</span>
+            </div>
+            <div class="award-name">
+              <span data-lang="zh">Kaggle比赛银牌 · Vesuvius Challenge - Surface Detection</span>
+              <span data-lang="en">Kaggle Silver Medal · Vesuvius Challenge - Surface Detection</span>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-top">
+              <span class="award-badge badge-silver">🥈 Kaggle Silver Medal</span>
+              <span class="item-date">2026.01</span>
+            </div>
+            <div class="award-name">
+              <span data-lang="zh">Kaggle比赛银牌 · PhysioNet - Digitization of ECG Images</span>
+              <span data-lang="en">Kaggle Silver Medal · PhysioNet - Digitization of ECG Images</span>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-top">
+              <span class="award-badge badge-gold">🏆 First Prize</span>
+              <span class="item-date">2012</span>
+            </div>
+            <div class="award-name">
+              <span data-lang="zh">北京市大学生物理学竞赛市一等奖</span>
+              <span data-lang="en">First Prize, Beijing College Student Physics Competition</span>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-top">
+              <span class="award-badge badge-gold">🏆 First Prize</span>
+              <span class="item-date">2012</span>
+            </div>
+            <div class="award-name">
+              <span data-lang="zh">北京市大学生数学竞赛市一等奖</span>
+              <span data-lang="en">First Prize, Beijing College Student Mathematics Competition</span>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-top">
+              <span class="award-badge badge-gold">🎖️ Second Prize</span>
+              <span class="item-date">2008</span>
+            </div>
+            <div class="award-name">
+              <span data-lang="zh">全国中学生物理学竞赛浙江赛区二等奖</span>
+              <span data-lang="en">Second Prize, National High School Physics Olympiad (Zhejiang Division)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional Services & Skills Section -->
+      <section id="skills" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+            <span data-lang="zh">专业服务与技能</span>
+            <span data-lang="en">Academic Service & Skills</span>
+          </h2>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <div class="skill-box-title">
+            <span data-lang="zh">学术期刊与会议审稿人 (Peer Reviewer)</span>
+            <span data-lang="en">Academic Journal & Conference Reviewer</span>
+          </div>
+          <div class="service-list">
+            <span class="journal-pill">IEEE Transactions on Signal Processing (TSP)</span>
+            <span class="journal-pill">Signal Processing</span>
+            <span class="journal-pill">IEEE Signal Processing Letters (SPL)</span>
+            <span class="journal-pill">EURASIP Digital Signal Processing</span>
+            <span class="journal-pill">Electronics Letters</span>
+            <span class="journal-pill">European Signal Processing Conference (EUSIPCO) 2019</span>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box">
+            <div class="skill-box-title">
+              <span data-lang="zh">编程语言与工具</span>
+              <span data-lang="en">Programming & Tools</span>
+            </div>
+            <div class="skill-chips">
+              <span class="chip">Python</span>
+              <span class="chip">C / C++</span>
+              <span class="chip">Matlab</span>
+              <span class="chip">Java</span>
+              <span class="chip">LaTeX</span>
+              <span class="chip">SQL</span>
+              <span class="chip">Android</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-box-title">
+              <span data-lang="zh">深度学习框架</span>
+              <span data-lang="en">Deep Learning Framework</span>
+            </div>
+            <div class="skill-chips">
+              <span class="chip">PyTorch (熟练掌握)</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-box-title">
+              <span data-lang="zh">英语水平</span>
+              <span data-lang="en">English Proficiency</span>
+            </div>
+            <div class="skill-chips">
+              <span class="chip">TOEFL: 104 (R29+L28+S22+W25)</span>
+              <span class="chip">GRE: V156 + Q166 + AW3.5</span>
+              <span class="chip">CET-4: 598</span>
+              <span class="chip">CET-6: 543</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Shuyang Jiang (姜舒扬). Hosted on GitHub Pages.</p>
+  </footer>
+
+  <div id="toast" class="toast">已复制邮箱地址：shuyangjiang2012@gmail.com</div>
+
+  <script>
+    // Dark / Light Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlEl = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Chinese / English Language Switcher
+    const langToggle = document.getElementById('langToggle');
+    langToggle.addEventListener('click', () => {
+      const currentLang = htmlEl.getAttribute('lang');
+      if (currentLang === 'en') {
+        htmlEl.setAttribute('lang', 'zh-CN');
+      } else {
+        htmlEl.setAttribute('lang', 'en');
+      }
+    });
+
+    // Publication Filter
+    function filterPubs(category, btnEl) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      document.querySelectorAll('#pubList .pub-item').forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Copy Email
+    function copyEmail() {
+      navigator.clipboard.writeText('shuyangjiang2012@gmail.com').then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2400);
+      });
+    }
+  </script>
+</body>
+</html>
