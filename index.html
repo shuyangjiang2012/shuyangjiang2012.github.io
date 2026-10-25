@@ -357,16 +357,19 @@
 
     /* About Me Bio Paragraphs */
     .about-prose {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
       font-size: 0.96rem;
       color: var(--text-secondary);
       line-height: 1.75;
     }
 
-    .about-prose p:not(:last-child) {
+    /* 英文段落间距（保持不变） */
+    .about-prose[data-lang="en"] p:not(:last-child) {
       margin-bottom: 1.15em;
+    }
+
+    /* 中文段落间距（单独调小，可根据视觉效果在 0.6em ~ 0.9em 之间微调） */
+    .about-prose[data-lang="zh"] p:not(:last-child) {
+      margin-bottom: 0.75em;
     }
 
     .about-prose a {
