@@ -354,6 +354,28 @@
       color: var(--accent);
     }
 
+    /* About Me Bio Paragraphs */
+    .about-prose {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .about-prose a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: var(--transition);
+    }
+
+    .about-prose a:hover {
+      color: var(--accent-hover);
+    }
+
     /* Timeline Items */
     .timeline {
       display: flex;
@@ -783,8 +805,8 @@
       </a>
 
       <ul class="nav-links">
+        <li><a href="#about"><span data-lang="zh">关于我</span><span data-lang="en">About</span></a></li>
         <li><a href="#education"><span data-lang="zh">教育背景</span><span data-lang="en">Education</span></a></li>
-        <li><a href="#internship"><span data-lang="zh">实习经历</span><span data-lang="en">Internship</span></a></li>
         <li><a href="#research"><span data-lang="zh">研究经历</span><span data-lang="en">Research</span></a></li>
         <li><a href="#publications"><span data-lang="zh">发表论文</span><span data-lang="en">Publications</span></a></li>
         <li><a href="#awards"><span data-lang="zh">荣誉奖励</span><span data-lang="en">Honors</span></a></li>
@@ -886,6 +908,52 @@
 
     <!-- Right Content Sections -->
     <div class="main-content">
+
+      <!-- About Section -->
+      <section id="about" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span data-lang="zh">关于我</span>
+            <span data-lang="en">About Me</span>
+          </h2>
+        </div>
+
+        <!-- 英文版段落 -->
+        <div class="about-prose" data-lang="en">
+          <p>
+            I am an AI Researcher and Algorithm Engineer focusing on algorithm design, implementation, and theoretical analysis in R&amp;D laboratories. Prior to returning to China, I pursued Ph.D. studies in the <a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Department of Electrical and Computer Engineering</a> and served as a Graduate Research Assistant at the <a href="https://csl.illinois.edu/" target="_blank" rel="noopener noreferrer">Coordinated Science Laboratory</a>, <a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign</a>. I work on machine learning (deep learning), large language models (LLMs), computer vision, multimodal representation learning, signal processing, and coding &amp; information theory.
+          </p>
+          <p>
+            Before joining UIUC, I received my M.S. in Electrical and Computer Engineering at the <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer">University of California, Los Angeles (UCLA)</a>, where I was fortunate to be advised by Prof. <a href="https://www.ee.ucla.edu/lara-dolecek/" target="_blank" rel="noopener noreferrer">Lara Dolecek</a> and collaborated with Prof. Kung Yao. Earlier, I received my B.S. in the <a href="https://www.ee.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">Department of Electronic Engineering</a> at <a href="https://www.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">Tsinghua University</a>, where I was fortunate to be advised by Prof. <a href="https://gu.ee.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">Yuantao Gu</a>.
+          </p>
+          <p>
+            I also undertook a research internship at the CAS (Anhui) G60 Institute of Smart Health Innovation, advised by Dr. Zenghui Ding.
+          </p>
+          <p>
+            Please find my full CV <a href="CV_Shuyang_Jiang.pdf" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+        </div>
+
+        <!-- 中文版段落 -->
+        <div class="about-prose" data-lang="zh">
+          <p>
+            我是一名专注于算法设计、实现与理论分析的 AI 算法研究员与算法工程师。在留美回国前，我曾于<a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">伊利诺伊大学香槟分校 (UIUC)</a> <a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">电子与计算机工程系 (ECE)</a> 攻读博士学位（中途退出），并在 <a href="https://csl.illinois.edu/" target="_blank" rel="noopener noreferrer">Coordinated Science Laboratory (CSL)</a> 担任研究助理。我的主要研究领域包括机器学习（深度学习）、大语言模型（LLM）、计算机视觉、多模态表征学习、信号处理以及编码论与信息论。
+          </p>
+          <p>
+            在加入 UIUC 之前，我于<a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer">加州大学洛杉矶分校 (UCLA)</a> 电子与计算机工程系获得硕士学位，期间幸得 <a href="https://www.ee.ucla.edu/lara-dolecek/" target="_blank" rel="noopener noreferrer">Lara Dolecek</a> 教授指导，并曾与 Kung Yao 教授合作开展研究。此前，我本科毕业于<a href="https://www.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">清华大学</a><a href="https://www.ee.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">电子工程系</a>，并在本科科研期间师从<a href="https://gu.ee.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">谷源涛</a>教授。
+          </p>
+          <p>
+            此外，我还曾在中科（安徽）G60智慧健康创新研究院进行科研实习，由丁增辉博士指导。
+          </p>
+          <p>
+            我的完整版简历请见<a href="CV_Shuyang_Jiang.pdf" target="_blank" rel="noopener noreferrer">此处</a>。
+          </p>
+        </div>
+      </section>
 
       <!-- Education Section -->
       <section id="education" class="section-card">
