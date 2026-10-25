@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -792,15 +792,11 @@
       </ul>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="langToggle" title="切换语言 / Switch Language">
-          <span>中 / EN</span>
+        <button class="icon-btn" id="langToggle" title="Switch Language / 切换语言">
+          <span>EN / 中</span>
         </button>
-        <button class="icon-btn" id="themeToggle" title="切换深浅色模式 / Toggle Theme">
+        <button class="icon-btn" id="themeToggle" title="Toggle Theme / 切换深浅色模式">
           <span id="themeIcon">🌙</span>
-        </button>
-        <button class="icon-btn" onclick="window.print()" title="打印或保存为PDF / Print CV">
-          <span data-lang="zh">打印简历</span>
-          <span data-lang="en">Print CV</span>
         </button>
       </div>
     </div>
@@ -847,7 +843,10 @@
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
           </svg>
           <a href="mailto:shuyangjiang2012@gmail.com">shuyangjiang2012@gmail.com</a>
-          <button class="copy-trigger" onclick="copyEmail()" title="复制邮箱">复制</button>
+          <button class="copy-trigger" onclick="copyEmail()" title="Copy Email">
+            <span data-lang="zh">复制</span>
+            <span data-lang="en">Copy</span>
+          </button>
         </li>
         <li class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1407,7 +1406,10 @@
               <span data-lang="en">Deep Learning Framework</span>
             </div>
             <div class="skill-chips">
-              <span class="chip">PyTorch (熟练掌握)</span>
+              <span class="chip">
+                <span data-lang="zh">PyTorch (熟练掌握)</span>
+                <span data-lang="en">PyTorch (Proficient)</span>
+              </span>
             </div>
           </div>
 
@@ -1433,7 +1435,10 @@
     <p>© 2026 Shuyang Jiang (姜舒扬). Hosted on GitHub Pages.</p>
   </footer>
 
-  <div id="toast" class="toast">已复制邮箱地址：shuyangjiang2012@gmail.com</div>
+  <div id="toast" class="toast">
+    <span data-lang="zh">已复制邮箱地址：shuyangjiang2012@gmail.com</span>
+    <span data-lang="en">Email copied: shuyangjiang2012@gmail.com</span>
+  </div>
 
   <script>
     // Dark / Light Theme Toggle
